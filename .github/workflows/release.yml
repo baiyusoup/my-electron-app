@@ -62,7 +62,9 @@ jobs:
         run: npm ci
 
       - name: Set app version for this build
-        run: npm version ${{ needs.prepare.outputs.app_version }} --no-git-tag-version --allow-same-version
+        shell: bash
+        run: |
+          node -e "const fs=require('fs'); const p='./package.json'; const pkg=require(p); pkg.version='${{ needs.prepare.outputs.app_version }}'; fs.writeFileSync(p, JSON.stringify(pkg, null, 2) + '\n');"
 
       - name: Build distributables
         run: npm run ${{ matrix.make_script }}
