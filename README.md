@@ -16,13 +16,14 @@
 
 触发方式：
 
-1. 创建并推送版本标签（例如 `v1.0.1`）
+1. 推送到 `main` 分支会自动触发
 2. 或在 GitHub Actions 页面手动触发 `Build and Release Electron App`
 
 工作流会：
 
 - 在 Windows / macOS 构建安装产物
 - 汇总产物并发布到对应的 GitHub Release
+- 每次按 `主版本.次版本.GITHUB_RUN_NUMBER` 生成唯一版本并自动打 tag（例如 `v1.0.25`）
 - 自动关闭签名自动发现（`CSC_IDENTITY_AUTO_DISCOVERY=false`），无需代码签名
 
 ## 应用更新逻辑
