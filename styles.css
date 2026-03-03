@@ -1,0 +1,348 @@
+body {
+    font-family: 'Arial Rounded MT Bold', 'Arial', sans-serif;
+    background-color: #e6f2ff;
+    margin: 0;
+    padding: 20px;
+    text-align: center;
+}
+
+h1 {
+    color: #3366cc;
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.menu-bar {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.menu-button {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 12px 24px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 25px;
+    transition: all 0.3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.menu-button:hover {
+    background-color: #45a049;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.student-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 15px;
+}
+
+.student-card {
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 15px;
+    padding: 15px;
+    width: 160px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s;
+    border: 2px solid #ddd;
+    overflow: hidden;
+}
+
+.student-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 30%;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 15px 15px 0 0;
+}
+
+.student-name {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #333;
+    margin: 10px 0 5px;
+    z-index: 1;
+}
+
+.student-id {
+    font-size: 0.9em;
+    color: #666;
+    z-index: 1;
+}
+
+.jar-container {
+    width: 100%;
+    height: 120px;
+    margin: 10px 0;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+    overflow: hidden;
+    border: 2px solid rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-end;
+    justify-content: center;
+    padding: 5px;
+    box-sizing: border-box;
+}
+
+.symbol {
+    margin: 2px;
+    transition: all 0.3s;
+}
+
+.star {
+    color: gold;
+    text-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+    font-size: 1.2em;
+}
+
+.moon {
+    color: #ddd;
+    text-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+    font-size: 1.3em;
+}
+
+.sun {
+    color: orange;
+    text-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+    font-size: 1.4em;
+}
+
+.score {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #e74c3c;
+    margin: 5px 0;
+    z-index: 1;
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    z-index: 1;
+    gap: 10px;
+}
+
+.score-button {
+    flex: 1;
+    padding: 8px 0;
+    border: none;
+    border-radius: 20px;
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.minus-button {
+    background-color: #ff6b6b;
+    color: white;
+}
+
+.plus-button {
+    background-color: #51cf66;
+    color: white;
+}
+
+.redeem-button {
+    background-color: #17a2b8;
+    color: white;
+    width: 100%;
+    margin-top: 5px;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal.is-open {
+    display: block;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 10% auto;
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 500px;
+    max-height: 80vh;
+    overflow-y: auto;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: black;
+}
+
+.prize-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    margin: 8px 0;
+    background-color: #f8f9fa;
+    border-radius: 5px;
+}
+
+.prize-controls {
+    display: flex;
+    gap: 5px;
+}
+
+.prize-control-button {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.edit-prize {
+    background-color: #ffc107;
+    color: #212529;
+}
+
+.delete-prize {
+    background-color: #dc3545;
+    color: white;
+}
+
+.prize-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.prize-form input {
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.prize-list {
+    max-height: 300px;
+    overflow-y: auto;
+    margin: 15px 0;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.reset-button {
+    background-color: #ff6b6b;
+}
+
+.setup-prompt {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 500px;
+    margin: 20px auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.is-hidden {
+    display: none !important;
+}
+
+.form-field {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.form-field-with-margin {
+    margin: 5px 0 15px;
+}
+
+.form-textarea {
+    margin-top: 10px;
+}
+
+.button-block {
+    margin-top: 15px;
+    width: 100%;
+}
+
+.mb-15 {
+    margin-bottom: 15px;
+}
+
+.confetti {
+    position: fixed;
+    left: 0;
+    top: 0;
+    pointer-events: none;
+    z-index: 1000;
+}
+
+.confetti--small {
+    width: 6px;
+    height: 6px;
+}
+
+.confetti--medium {
+    width: 9px;
+    height: 9px;
+}
+
+.confetti--large {
+    width: 12px;
+    height: 12px;
+}
+
+.confetti--circle {
+    border-radius: 50%;
+}
+
+.confetti--square {
+    border-radius: 2px;
+}
+
+.confetti--color-1 { background-color: #ff6b6b; }
+.confetti--color-2 { background-color: #4dabf7; }
+.confetti--color-3 { background-color: #ffd43b; }
+.confetti--color-4 { background-color: #69db7c; }
+.confetti--color-5 { background-color: #b197fc; }
+.confetti--color-6 { background-color: #ffa94d; }

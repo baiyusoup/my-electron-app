@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'; style-src 'self'"
+    />
+    <meta
+      http-equiv="X-Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'; style-src 'self'"
+    />
+    <title>班级积分系统</title>
+    <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+    <h1 id="classTitle">班级积分系统 🌟✨</h1>
+    
+    <div class="menu-bar">
+        <button class="menu-button" id="rankButton">排行榜 🏆</button>
+        <button class="menu-button" id="importButton">导入积分 📁</button>
+        <button class="menu-button" id="exportButton">导出积分 💾</button>
+        <button class="menu-button" id="setupButton">班级设置 ⚙️</button>
+        <button class="menu-button" id="prizeButton">奖品管理 🎁</button>
+        <button class="menu-button reset-button" id="resetButton">重置系统 ♻️</button>
+    </div>
+    
+    <div id="setupPrompt" class="setup-prompt">
+        <h2>欢迎使用班级积分系统</h2>
+        <p>首次使用请先设置班级信息</p>
+        <button id="startSetup" class="menu-button">开始设置</button>
+    </div>
+    
+    <div class="student-grid" id="studentGrid"></div>
+    
+    <!-- 排行榜模态框 -->
+    <div id="rankModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>积分排行榜</h2>
+            <div id="rankList"></div>
+        </div>
+    </div>
+    
+    <!-- 班级设置模态框 -->
+    <div id="setupModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>班级设置</h2>
+            <div>
+                <label for="className">班级名称：</label>
+                <input type="text" id="className" class="form-field form-field-with-margin" placeholder="例如：一年(3)班">
+            </div>
+            <div>
+                <label>学生名单（每行一个姓名）：</label>
+                <textarea id="studentNames" rows="10" class="form-field form-textarea"></textarea>
+            </div>
+            <button id="saveSetup" class="menu-button button-block">保存设置</button>
+        </div>
+    </div>
+    
+    <!-- 奖品管理模态框 -->
+    <div id="prizeModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>奖品管理</h2>
+            <div class="prize-form">
+                <input type="text" id="prizeName" class="form-field" placeholder="奖品名称">
+                <input type="number" id="prizeCost" class="form-field" placeholder="所需星星数" min="1">
+                <button id="addPrize" class="menu-button">添加奖品</button>
+            </div>
+            <div class="prize-list" id="prizeList"></div>
+        </div>
+    </div>
+    
+    <!-- 兑换奖品模态框 -->
+    <div id="redeemModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>兑换奖品</h2>
+            <p id="redeemStudentInfo" class="mb-15"></p>
+            <div class="prize-list" id="redeemPrizeList"></div>
+        </div>
+    </div>
+
+    <script src="./renderer.js"></script>
+</body>
+</html>
