@@ -24,7 +24,7 @@ jobs:
         id: version
         shell: bash
         run: |
-          BASE_VERSION=$(node -p "const v=require('./package.json').version.split('.'); `${v[0]}.${v[1]}`")
+          BASE_VERSION=$(node -p "const v=String(require('./package.json').version||'0.0.0').split('.'); (v[0] || '0') + '.' + (v[1] || '0')")
           APP_VERSION="${BASE_VERSION}.${GITHUB_RUN_NUMBER}"
           RELEASE_TAG="v${APP_VERSION}"
           echo "app_version=${APP_VERSION}" >> "$GITHUB_OUTPUT"
