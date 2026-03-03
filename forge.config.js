@@ -13,6 +13,8 @@ module.exports = {
       name: '@electron-forge/maker-squirrel',
       config: {
         name: 'my_electron_app',
+        authors: 'Internal Team',
+        description: '内部使用的 Electron 应用',
         setupExe: 'my-electron-app-setup.exe',
         noMsi: true,
       },

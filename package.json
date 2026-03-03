@@ -11,7 +11,7 @@
     "make:win": "electron-forge make --platform=win32",
     "make:mac": "electron-forge make --platform=darwin"
   },
-  "author": "",
+  "author": "Internal Team",
   "license": "ISC",
   "repository": {
     "type": "git",
