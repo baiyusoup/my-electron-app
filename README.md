@@ -16,7 +16,7 @@
 
 触发方式：
 
-1. 推送到 `main` 分支会自动触发
+1. 推送到 `master` 分支会自动触发
 2. 或在 GitHub Actions 页面手动触发 `Build and Release Electron App`
 
 工作流会：
